@@ -1,0 +1,10 @@
+:root {
+    --header-height : 5rem;
+    --footer-height : 5rem;
+    --content-height: calc(100vh - 1rem - var(--header-height) - var(--footer-height));
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
