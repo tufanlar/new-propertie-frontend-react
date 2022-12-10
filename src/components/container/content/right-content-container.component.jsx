@@ -2,20 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const ContentWrapper = styled.div.attrs({
+const RightContentWrapper = styled.div.attrs({
     className: "flex justify-center items-center"
   })`
     border:1px solid rgba(23,69,122,255);
-    min-height: var(--content-height); 
+    width: %20;
   `;
   
 
-function ContentContainer({children}) {
+function RightContentContainer({children}) {
   return (
-    <ContentWrapper>
+    <RightContentWrapper>
       {children}
-    </ContentWrapper>
+    </RightContentWrapper>
   )
 }
 
-export default ContentContainer
+export default RightContentContainer

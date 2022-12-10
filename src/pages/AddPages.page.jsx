@@ -2,12 +2,12 @@ import React from 'react'
 import PageContainer from '../components/container/page/page-container.component'
 
 
-function WelcomePage() {
+function AddPagesPage() {
   return (
     <PageContainer>
-      <h1>Welcome Page</h1>
+      <h1>Add Pages Page</h1>
     </PageContainer>
   )
 }
 
-export default WelcomePage
+export default AddPagesPage
