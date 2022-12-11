@@ -2,13 +2,14 @@ import React from 'react'
 import PageContainer from '../components/container/page/page-container.component'
 import { useParams } from 'react-router-dom'
 
-function BlogsPage() {
+function BlogsPage(props) {
     
-    const { catId } = useParams();
+    const { catTagId } = useParams();
+    // 
 
     return (
         <PageContainer>
-            <h1>Blogs Page CategoryId: { catId }</h1>
+            <h1>Blogs Page CategoryId: { catTagId }</h1>
         </PageContainer>
     )
 }

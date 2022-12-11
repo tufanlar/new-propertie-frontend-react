@@ -2,26 +2,32 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+
+const MyNav = styled.nav.attrs({
+  className: "flex grow justify-around"
+})``;
+
 const NewLink = styled(Link)`
-  color: red;
   display: inline-block;
-  padding-right:20px;
-  height:40px;
 `;
+
+const NewLinkButton = styled(NewLink).attrs({
+  className: " "
+})`
+    cursor:pointer;
+`;
+
 
 function Navbar() {
   return (
-    <div>
-      <nav>
+      <MyNav>
         <NewLink to="/">Home</NewLink>
-        <NewLink to="/login">Login</NewLink>
-        <NewLink to="/signup">SignUp</NewLink>
-        <NewLink to="/add-pages">Add Pages</NewLink>
-        <NewLink to="/add-blog">Add Blog</NewLink>
-        <NewLink to="/add-category">Add Category</NewLink>
-        <NewLink to="/add-page-section">Add Page Section</NewLink>
-      </nav>
-    </div>
+        <NewLink to="/blogs">Blogs</NewLink>
+        <div>
+          <NewLinkButton>Pages</NewLinkButton>
+        </div>
+        <NewLink to="/new-demand">New Demand</NewLink>
+      </MyNav>
   )
 }
 

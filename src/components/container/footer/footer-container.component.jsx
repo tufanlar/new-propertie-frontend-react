@@ -2,11 +2,12 @@ import React from 'react'
 import styled from 'styled-components';
 
 const FooterWrapper = styled.div.attrs({
-  className: "flex justify-end items-center pr-4"
+  className: "flex items-center justify-between"
 })`
-  border: 1px solid rgba(23,69,122,255);
-  height: var(--footer-height);
+  min-height: var(--footer-height);
+  border: 1px solid red;
 `;
+
 
 function FooterContainer({children}) {
   return (

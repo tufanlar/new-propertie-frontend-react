@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const NavbarWrapper = styled.div.attrs({
-  className: "flex justify-center items-center invisible md:visible grow"
+  className: "flex items-center grow font-bold"
 })`
   border:1px solid rgb(243,123,108);
   min-width: 10rem;
