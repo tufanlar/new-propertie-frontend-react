@@ -2,18 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialUserState = {
     token: undefined,
-    userId: 0,
-    isAdmin: false
+    currentUser : {
+        userId: 0,
+        isAdmin: false  
+    }
+    
 };
 
 export const userSlice = createSlice({
     name: "user",
-    initialUserState,
+    initialState: initialUserState,
     reducers: {
         setUser: (state, action) => {
-            state.token =  action.payload.token;
-            state.userId =  action.payload.userId;
-            state.isAdmin =  action.payload.isAdmin ? true : false;
+            state.currentUser =  action.payload;
+        },
+        setToken: (state, action) => {
+            state.token =  action.payload;
         }
     }
 });

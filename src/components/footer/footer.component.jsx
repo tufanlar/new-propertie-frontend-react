@@ -2,6 +2,9 @@ import React from 'react';
 import FooterContainer from '../container/footer/footer-container.component';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
+
 
 const LeftWrapper = styled.div.attrs({
   className: "block font-bold"
@@ -26,20 +29,25 @@ const NewLink = styled(Link)`
 `;
 
 function Footer() {
+
+  const { isAdmin } = useSelector(selectCurrentUser);
+  console.log("is Admin" , isAdmin);
+
   return (
     <FooterContainer>
       <LeftWrapper>
 
-        <nav>
-          <NewLink to="/add-category">Add Category</NewLink>
-          <NewLink to="/add-blog">Add Blog</NewLink>
-          <NewLink to="/add-pages">Add Pages</NewLink>
-          <NewLink to="/add-page-section">Add Page Section</NewLink>
-        </nav>
+        { isAdmin && 
+          <nav>
+            <NewLink to="/add-category">Add Category</NewLink>
+            <NewLink to="/add-blog">Add Blog</NewLink>
+            <NewLink to="/add-pages">Add Pages</NewLink>
+            <NewLink to="/add-page-section">Add Page Section</NewLink>
+          </nav>
+        }
 
       </LeftWrapper>
       <CenterWrapper>
-        <h1> Social Icons </h1>
       </CenterWrapper>
       <RightWrapper>
         <h1> Propertie v1 </h1>

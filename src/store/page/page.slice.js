@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialPageState = {
-    pages : [],
+    allPages : [],
     pageSections : []
 };
 
 export const pageSlice = createSlice({
     name: "page",
-    initialPageState,
+    initialState: initialPageState,
     reducers: {
         loadPages: (state, action) => {
-            state.page =  action.payload;
+            state.allPages =  action.payload;
         }, 
         loadPageSections: (state, action) => {
             state.pageSections =  action.payload;

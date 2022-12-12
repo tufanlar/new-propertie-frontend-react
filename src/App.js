@@ -13,6 +13,11 @@ import PageContentPage from "./pages/PageContent.page";
 import SignUpPage from "./pages/Signup.page";
 import WelcomePage from "./pages/Welcome.page";
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+library.add(fas, fab, far);
 
 function App() {
   return (

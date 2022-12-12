@@ -6,8 +6,15 @@ import LoginContainer from '../container/header/login-container.component'
 import Logo from './logo.component'
 import Navbar from './navbar.component'
 import LoginButton from './login-button.component'
+import LogoutButton from './logout-button.component'
+import { useSelector } from 'react-redux';
+import { selectUserToken } from '../../store/user/user.selector';
+
 
 function Header() {
+
+  const token = useSelector(selectUserToken);
+
   return (
     <HeaderContainer>
         <LogoContainer>
@@ -17,7 +24,10 @@ function Header() {
             <Navbar />
         </NavbarContainer>
         <LoginContainer>
-            <LoginButton />
+          { token === undefined ? 
+            <LoginButton /> : 
+            <LogoutButton />
+          }
         </LoginContainer>
     </HeaderContainer>
   )
