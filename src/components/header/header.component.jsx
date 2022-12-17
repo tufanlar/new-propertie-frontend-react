@@ -9,26 +9,34 @@ import LoginButton from './login-button.component'
 import LogoutButton from './logout-button.component'
 import { useSelector } from 'react-redux';
 import { selectUserToken } from '../../store/user/user.selector';
-
+import { useLocation } from 'react-router-dom';
 
 function Header() {
 
   const token = useSelector(selectUserToken);
+  const { pathname } = useLocation();
+  const urls = ["login", "signup", "forget"];
+  const isShowMenu = urls.find( url => url === pathname.slice(1)) === undefined ? true: false;
+
 
   return (
     <HeaderContainer>
         <LogoContainer>
             <Logo />
         </LogoContainer>
-        <NavbarContainer>
-            <Navbar />
-        </NavbarContainer>
-        <LoginContainer>
-          { token === undefined ? 
-            <LoginButton /> : 
-            <LogoutButton />
-          }
-        </LoginContainer>
+        { isShowMenu && 
+        <>
+          <NavbarContainer>
+              <Navbar />
+          </NavbarContainer>
+          <LoginContainer>
+            { token === undefined ? 
+              <LoginButton /> : 
+              <LogoutButton />
+            }
+          </LoginContainer>
+        </>
+         }
     </HeaderContainer>
   )
 }

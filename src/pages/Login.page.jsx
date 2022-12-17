@@ -1,11 +1,12 @@
 import React from 'react'
+import LoginForm from '../components/body/login-form.component'
 import PageContainer from '../components/container/page/page-container.component'
 
 
 function LoginPage() {
   return (
     <PageContainer>
-      <h1>Login Page</h1>
+      <LoginForm />
     </PageContainer>
   )
 }
