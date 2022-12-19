@@ -24,19 +24,15 @@ function Header() {
         <LogoContainer>
             <Logo />
         </LogoContainer>
-        { isShowMenu && 
-        <>
-          <NavbarContainer>
-              <Navbar />
-          </NavbarContainer>
-          <LoginContainer>
-            { token === undefined ? 
+        <NavbarContainer>
+          { isShowMenu && <Navbar /> }
+        </NavbarContainer>
+        <LoginContainer>
+          { isShowMenu && ( token === undefined ? 
               <LoginButton /> : 
-              <LogoutButton />
-            }
-          </LoginContainer>
-        </>
-         }
+              <LogoutButton /> )
+          }
+        </LoginContainer>
     </HeaderContainer>
   )
 }

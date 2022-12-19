@@ -8,7 +8,9 @@ import axios from "axios";
 
 const DEBUG = process.env.NODE_ENV === "development";
 
-const API_URL = DEBUG ? 'https://api.tfnsoft.com/v1/' : '/';
+const API_URL = DEBUG ? 'https://api.tfnsoft.com/v1' : 'https://api.tfnsoft.com/v1';
+
+console.log("API ADDRESS", API_URL);
 
 const instance = axios.create({
     baseURL: API_URL,
@@ -30,7 +32,9 @@ instance.interceptors.request.use((req) => {
     // req.headers.authorization = secret token;
     // const accessToken = localStorage.getItem('accessToken');
     // req.headers['token'] = `${localStorage.getItem('token')}`
-    // req.headers['content-type'] = 'application/json'
+    req.headers['content-type'] = 'application/json'
+    // req.headers['Access-Control-Allow-Origin'] = '*';
+    
     // req.headers['token'] = `${localStorage.getItem('token')}`
     // req.headers['content-type'] = 'application/json'
     
@@ -40,7 +44,7 @@ instance.interceptors.request.use((req) => {
     if (DEBUG) { 
         console.info("✉️ ", req); 
         console.log(`${req.method} ${req.url}`);
-        config.time = { startTime: new Date() };
+        req.time = { startTime: new Date() };
     }
     return req;
   }, (err) => {
@@ -57,23 +61,19 @@ instance.interceptors.response.use((res) => {
     // Do something with response data
     if (DEBUG) { 
         console.info("✉️ ", res); 
-        
-        // res.data.json
         res.config.time.endTime = new Date();
         res.duration = res.config.time.endTime - res.config.time.startTime;
         console.info("Req duration:", res.duration); 
     }
 
-    /*
-    if (error.response.status == 401) {
-        localStorage.removeItem("accessToken");
-        router.push({ name: "login" });
-    }
-    return Promise.reject(error);
-    */
+    if (res.data.hasOwnProperty('isError')) 
+      throw new Error(res.data.message)
 
     return res;
+
   }, (err) => {
+    // html error geldiğnde 401 , 500 , 301 v.b
+    console.log("Backend response error", err);
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     // const status = err.response?.status || 500;

@@ -6,7 +6,9 @@ import PageContainer from '../components/container/page/page-container.component
 function LoginPage() {
   return (
     <PageContainer>
-      <LoginForm />
+      <div className='flex bg-gray-100 w-full' >
+        <LoginForm />
+      </div>
     </PageContainer>
   )
 }

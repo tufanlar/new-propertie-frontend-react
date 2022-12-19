@@ -44,6 +44,26 @@
         duration-200
         ease-in-out
     }
+  
+    .input-error {
+      @apply
+        text-base
+        border-secondary
+        border
+        placeholder-secondary
+        rounded-md
+        outline-none
+        text-secondary
+        py-1
+        px-3
+        leading-4
+        transition-colors
+        duration-200
+        ease-in-out
+    }
+
+
+
   }
 
 

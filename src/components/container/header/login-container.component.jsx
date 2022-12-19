@@ -5,7 +5,6 @@ const LoginWrapper = styled.div.attrs({
   className: "flex flex-none justify-center items-center" 
 })`
   min-width: 12rem;
-  border:1px solid rgb(243,123,108);
 `;
 
 
