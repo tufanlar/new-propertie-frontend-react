@@ -23,7 +23,9 @@ const RightWrapper = styled.div.attrs({
 `;
 
 
-const NewLink = styled(Link)`
+const NewLink = styled(Link).attrs({
+  className: "text-primary"
+})`
   display: inline-block;
   padding-right:15px;
 `;
@@ -50,7 +52,7 @@ function Footer() {
       <CenterWrapper>
       </CenterWrapper>
       <RightWrapper>
-        <h1> Propertie v1 </h1>
+        <strong className="text-primary font-semibold "> Propertie V1 </strong>
       </RightWrapper>
     </FooterContainer>
   )

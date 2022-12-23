@@ -1,15 +1,15 @@
 import React from 'react'
 import PageContainer from '../components/container/page/page-container.component'
 import { useParams } from 'react-router-dom'
+import PageTemplate from '../components/body/page-template.component';
 
 function BlogsPage(props) {
     
     const { catTagId } = useParams();
-    // 
 
     return (
         <PageContainer>
-            <h1>Blogs Page CategoryId: { catTagId }</h1>
+            <PageTemplate pageName = {`Blogs Page CategoryId: ${catTagId }`} />
         </PageContainer>
     )
 }

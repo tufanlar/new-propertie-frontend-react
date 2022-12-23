@@ -1,11 +1,11 @@
 import React from 'react'
 import PageContainer from '../components/container/page/page-container.component'
-
+import PageTemplate from '../components/body/page-template.component';
 
 function AddPagesPage() {
   return (
     <PageContainer>
-      <h1>Add Pages Page</h1>
+      <PageTemplate pageName = {`Add Pages Page`} />
     </PageContainer>
   )
 }

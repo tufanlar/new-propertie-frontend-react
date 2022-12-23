@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-export const BtnWrapper = styled.div.attrs({
+const BtnWrapper = styled.div.attrs({
     className: "hidden md:flex"
 })`
 `;
 
-export const LinkWrapper = styled(Link).attrs({
+const LinkWrapper = styled(Link).attrs({
     className: "login-btn"
 })`
 `;

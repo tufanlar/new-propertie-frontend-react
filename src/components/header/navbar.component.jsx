@@ -7,7 +7,9 @@ const MyNav = styled.nav.attrs({
   className: "flex grow justify-around"
 })``;
 
-const NewLink = styled(Link)`
+const NewLink = styled(Link).attrs({
+  className: "text-primary"
+})`
   display: inline-block;
 `;
 
@@ -22,11 +24,11 @@ function Navbar() {
   return (
       <MyNav>
         <NewLink to="/">Home</NewLink>
-        <NewLink to="/blogs">Blogs</NewLink>
+        <NewLink to="/blogs/trends">Blogs</NewLink>
         <div>
           <NewLinkButton>Pages</NewLinkButton>
         </div>
-        <NewLink to="/new-demand">New Demand</NewLink>
+        <NewLink to="/new-demand"><span className="text-secondary" >New Demand</span></NewLink>
       </MyNav>
   )
 }

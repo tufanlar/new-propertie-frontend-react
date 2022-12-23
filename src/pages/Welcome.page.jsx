@@ -1,11 +1,12 @@
 import React from 'react'
+import PageTemplate from '../components/body/page-template.component'
 import PageContainer from '../components/container/page/page-container.component'
 
 
 function WelcomePage() {
   return (
     <PageContainer>
-      <h1>Welcome Page</h1>
+      <PageTemplate pageName = "Home Page" />
     </PageContainer>
   )
 }

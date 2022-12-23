@@ -17,6 +17,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import ForgetPage from "./pages/Forget.page";
 library.add(fas, fab, far);
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
 
         <Route path="login" element = {<LoginPage />} />
         <Route path="signup" element = {<SignUpPage />} />
+        <Route path="forget" element = {<ForgetPage />} />
 
         <Route path="add-category" element = {<AddCategoryPage />} />
         <Route path="add-blog" element = {<AddBlogPage />} />

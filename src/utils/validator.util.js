@@ -69,6 +69,7 @@
 
 export class MailError extends Error {} ;
 export class PasswordError extends Error {};
+export class NameSurnameError extends Error {};
 
 
 export const getLength = (data) => {
@@ -78,6 +79,22 @@ export const getLength = (data) => {
         return 0;
     }
 }
+
+
+export const checkLength = (data, length) => {
+
+    const val = getLength(data);
+
+    if(val === 0)
+        throw new Error("Please enter value !");
+
+    if(val < length )
+        throw new Error(`Must be at least ${length} characters !`);
+
+
+}
+
+
 
 export const checkEmail = (email) => {
 
@@ -94,7 +111,23 @@ export const checkEmail = (email) => {
 
 }
 
-export const checkPassword = (password) => {
+
+export const checkNameSurname = (username) => {
+
+
+    if(getLength(username) === 0)
+        throw new NameSurnameError("Enter name and surname !");
+
+    if(username.length < 8 )
+        throw new NameSurnameError("Must be at least eight characters !");
+
+    const re = /^\w+\s+\w+$/;
+    if (!re.test(username)) 
+        throw new NameSurnameError("Name surname not valid !");
+
+}
+
+export const checkPassword = (password, isPolicyApply = false) => {
 
     if(getLength(password) === 0)
         throw new PasswordError("Enter password !");
@@ -103,7 +136,7 @@ export const checkPassword = (password) => {
         throw new PasswordError("Must be at least eight characters !");
 
     const re = /[a-z]+[A-Z]+[0-9]+[-+!]+/;
-    if (!re.test(password)) 
+    if (isPolicyApply && !re.test(password)) 
         throw new PasswordError("Must have at least one lowercase letter[a-z], uppercase[A-Z], number[0-9] and symbol[-+!] ");
     
     
